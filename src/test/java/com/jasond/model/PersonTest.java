@@ -1,6 +1,7 @@
 package com.jasond.model;
 
 import org.junit.Test;
+import org.junit.Before;
 
 import static org.junit.Assert.*;
 
@@ -31,9 +32,14 @@ public class PersonTest {
 //
 //
 //    }
+    @Before
+    public void setUp(){
+        person1 = new Person("Jason",18);
+        person2 = new Person("David", 21);
+        person3 = new Person("Jason",18);
+    }
     @Test
-    public void GivenTheObjectSharesMemoryLocation_TrueIsReturned() {
-
+    public void Given_the_object_shares_memory_location_return_true() {
 
         System.out.println("\n"+ "Testing Object person1 against person2 Identity: ");
         System.out.println( person1 == person2);
@@ -64,5 +70,16 @@ public class PersonTest {
         System.out.println( person2.equals(person3));
     }
 
+    @Test
+    public void GivenTheObjectsHaveEquality_FalseIsReturned() {
+
+
+        System.out.println("\n"+ "Testing Object person1 and person2 Equality: ");
+        System.out.println( person1.equals(person2));
+        System.out.println("\n"+ "Testing Object person1 and person3 Equality: ");
+        System.out.println( person1.equals(person3));
+        System.out.println("\n"+ "Testing Object person2 and person3 Equality: ");
+        System.out.println( person2.equals(person3));
+    }
 
 }
